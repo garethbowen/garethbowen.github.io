@@ -1,9 +1,66 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title>Gareth Bowen</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gareth Bowen - Technology, Music, Biking, Hiking, Dunedin, New Zealand</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="./logo/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./logo/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./logo/favicon-16x16.png">
+    <link rel="manifest" href="./site.webmanifest">
   </head>
   <body>
-    Gareth Bowen
-    gareth@bowenwebdesign.co.nz
+    <div>
+      <div class="contact">
+        <div class="logo">
+          <a href="https://gareth.nz"><img src="./logo/logo-white.svg" alt="Gareth Bowen" width="50" /></a>
+        </div>
+        <div class="social">
+          <ul>
+            <li><a href="mailto:gareth@bowenwebdesign.co.nz"><img src="./icons/icons8-email-64.png" width="32" height="32" alt="Email Gareth Bowen"/></a></li>
+            <li><a href="https://www.linkedin.com/in/garethjbowen/"><img src="./icons/icons8-linkedin-64.png" width="32" height="32" alt="View Gareth Bowen LinkedIn profile"/></a></li>
+            <li><a href="https://github.com/garethbowen"><img src="./icons/icons8-github-64.png" width="32" height="32" alt="See Gareth's software development at GitHub"/></a></li>
+            <li><a href="https://www.strava.com/athletes/13372622"><img src="./icons/icons8-strava-64.png" width="32" height="32" alt="Follow Gareth on Strava"/></a></li>
+            <li><a href="https://mastodon.nz/@garethbowen"><img src="./icons/icons8-mastodon-64.png" width="32" height="32" alt="Lurking on mastodon"/></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="banner">
+      <div>
+        <h1>Gareth Bowen</h1>
+      </div>
+    </div>
+    <div>
+      <div>
+        <p>I have decades of experience leading software teams to develop maintainable and scalable products supporting millions of people worldwide. While I still love to code, I find I can have more impact setting organisational strategy at the executive and board level, and seeing initiatives through to fruition.</p>
+        <p>Currently I'm a member of the <a href="https://www.iod.org.nz/">IoD</a>, and on the board of the <a href="https://www.nzbrush.co.nz/">NZ Brush Company</a> and Chair of <a href="https://www.celticsouth.co.nz/">Celtic South Ltd</a>. Previously I've worked as CTO for <a href="https://medic.org/">Medic</a>, and as a software engineer for <a href="https://motorweb.co.nz/">MotorWeb</a> and <a href="https://orionhealth.com/">Orion Health</a>.</p>
+        <p>Based in sunny Dunedin New Zealand I like to bike and hike, listen and create music, and play games with my family.</p>
+      </div>
+    </div>
+    <div class="full-width">
+      <div id="splash"></div>
+    </div>
+    <div class="footer">
+      <div>
+        &copy; Gareth Bowen
+      </div>
+    </div>
+    <script>
+      const photos = [
+        { src: 'finland.jpg', alt: 'Gareth Bowen skiing in Levi, Finland' },
+        { src: 'fusen.jpg', alt: 'Gareth Bowen mountain climbing in Fusen, Germany' },
+        { src: 'old-man-stor.jpg', alt: 'Gareth Bowen hiking in Scotland' },
+        { src: 'piopiotahi.jpg', alt: 'Gareth Bowen hiking in Piopiotahi, New Zealand' },
+        { src: 'rail-trail.jpg', alt: 'Gareth Bowen biking the Otago Central Rail Trail, New Zealand' },
+        { src: 'scotland.jpg', alt: 'Gareth Bowen waterfall in Scotland' },
+        { src: 'sutherland.jpg', alt: 'Gareth Bowen hiking to Sutherland Falls, New Zealand' },
+        { src: 'vernazza.jpg', alt: 'Gareth Bowen visiting Vernazza, Italy' }
+      ];
+      const photo = photos[Math.floor(Math.random() * photos.length)];
+      document.getElementById('splash').innerHTML = `<img src="./photos/${photo.src}" alt="${photo.alt}" />`;
+    </script>
   </body>
 </html>
