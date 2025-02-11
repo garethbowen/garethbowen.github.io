@@ -131,6 +131,12 @@ div.banner {
   body > div > div {
     padding: 1rem;
   }
+  body > div.banner > div {
+    padding: 2rem 1rem;
+  }
+  .banner h1 {
+    font-size: 3rem;
+  }
   .social img {
     margin: 0.4rem;
   }
