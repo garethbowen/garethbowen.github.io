@@ -53,17 +53,21 @@
     </div>
     <script>
       const photos = [
-        { src: 'finland.jpg', alt: 'Gareth Bowen skiing in Levi, Finland' },
-        { src: 'fusen.jpg', alt: 'Gareth Bowen mountain climbing in Fusen, Germany' },
-        { src: 'old-man-stor.jpg', alt: 'Gareth Bowen hiking in Scotland' },
-        { src: 'piopiotahi.jpg', alt: 'Gareth Bowen hiking in Piopiotahi, New Zealand' },
-        { src: 'rail-trail.jpg', alt: 'Gareth Bowen biking the Otago Central Rail Trail, New Zealand' },
-        { src: 'scotland.jpg', alt: 'Gareth Bowen waterfall in Scotland' },
-        { src: 'sutherland.jpg', alt: 'Gareth Bowen hiking to Sutherland Falls, New Zealand' },
-        { src: 'vernazza.jpg', alt: 'Gareth Bowen visiting Vernazza, Italy' }
+        { src: 'finland', alt: 'Gareth Bowen skiing in Levi, Finland' },
+        { src: 'fusen', alt: 'Gareth Bowen mountain climbing in Fusen, Germany' },
+        { src: 'old-man-stor', alt: 'Gareth Bowen hiking in Scotland' },
+        { src: 'piopiotahi', alt: 'Gareth Bowen hiking in Piopiotahi, New Zealand' },
+        { src: 'scotland', alt: 'Gareth Bowen waterfall in Scotland' },
+        { src: 'sutherland', alt: 'Gareth Bowen hiking to Sutherland Falls, New Zealand' },
+        { src: 'vernazza', alt: 'Gareth Bowen visiting Vernazza, Italy' }
       ];
       const photo = photos[Math.floor(Math.random() * photos.length)];
-      document.getElementById('splash').innerHTML = `<img src="./photos/${photo.src}" alt="${photo.alt}" />`;
+      const html = `<img
+        srcset="./photos/${photo.src}-600.jpg 600w, ./photos/${photo.src}-4000.jpg 4000w"
+        sizes="(max-width: 600px) 600px, 4000px"
+        src="./photos/${photo.src}-4000.jpg"
+        alt="${photo.alt}" />`;
+      document.getElementById('splash').innerHTML = html;
     </script>
   </body>
 </html>
