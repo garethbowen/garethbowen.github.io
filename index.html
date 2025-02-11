@@ -62,11 +62,10 @@
         { src: 'vernazza', alt: 'Gareth Bowen visiting Vernazza, Italy' }
       ];
       const photo = photos[Math.floor(Math.random() * photos.length)];
-      const html = `<img
-        srcset="./photos/${photo.src}-600.jpg 600w, ./photos/${photo.src}-4000.jpg 4000w"
-        sizes="(max-width: 600px) 600px, 4000px"
-        src="./photos/${photo.src}-4000.jpg"
-        alt="${photo.alt}" />`;
+      const html = `<picture>
+        <source srcset="./photos/${photo.src}-4000.jpg" media="(min-width: 600px)" />
+        <img src="./photos/${photo.src}-600.jpg" alt="${photo.alt}" />
+      </picture>`;
       document.getElementById('splash').innerHTML = html;
     </script>
   </body>
