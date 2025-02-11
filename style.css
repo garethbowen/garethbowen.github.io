@@ -52,10 +52,10 @@ body {
 }
 
 .banner h1 {
-  font-weight: bold;
-  font-size: 2rem;
-  display: inline-block;
-  margin-left: 0.5rem;
+  font-size: 4rem;
+  font-family: "Overlock SC", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 a {
