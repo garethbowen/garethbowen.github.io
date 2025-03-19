@@ -59,15 +59,53 @@ body {
 }
 
 a {
-  color: #F9F5C1;
+  color: #f2ff8e;
+}
+
+h2,
+h3 {
+  font-weight: bold;
+}
+
+h2 {
+  margin-top: 2rem;
+  font-size: 2rem;
+}
+
+h3 {
+  margin-top: 5rem;
+  font-size: 1.5rem;
+}
+
+h4 {
+  margin-top: 1.5rem;
+}
+
+em {
+  font-style: italic;
+}
+
+pre {
+  background-color: #0002;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 1rem;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  border: 1px solid #fff;
+  overflow-x: scroll;
+}
+
+a {
   text-decoration: none;
+  outline : none;
 }
 
 a:hover {
   text-decoration: underline;
 }
 
-p {
+p,
+ul {
   padding: 1rem 0;
 }
 
@@ -77,9 +115,30 @@ body > div > div {
   padding: 2rem;
 }
 
-div.banner {
+div.banner,
+div.page-title {
   background-color: #FFF;
   color: #45A0A7;
+}
+
+.section {
+  border-top: 10px solid #fff;
+}
+
+div.page-title {
+  margin-top: 20px;
+}
+
+div.page-title > div {
+  padding: 1rem 2rem;
+}
+
+div.page-title h2 {
+  margin-top: 0;
+}
+
+div.page-title p {
+  padding: 0;
 }
 
 .full-width div {
@@ -93,6 +152,25 @@ div.banner {
 
 .full-width img {
   max-width: 100%;
+}
+
+.splash {
+  text-align: center;
+}
+
+.splash > div {
+  display: inline-block;
+}
+
+.splash img {
+  max-width: 100%;
+}
+
+.splash .caption {
+  font-style: italic;
+  font-size: 0.8rem;
+  text-align: right;
+  padding: 0;
 }
 
 .contact {
