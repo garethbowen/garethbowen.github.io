@@ -70,6 +70,7 @@ h3 {
 h2 {
   margin-top: 2rem;
   font-size: 2rem;
+  line-height: 3rem;
 }
 
 h3 {
@@ -85,8 +86,13 @@ em {
   font-style: italic;
 }
 
-pre {
+pre,
+div.section-title,
+div.footer {
   background-color: #0002;
+}
+
+pre {
   font-family: 'Courier New', Courier, monospace;
   padding: 1rem;
   font-size: 1rem;
@@ -115,30 +121,31 @@ body > div > div {
   padding: 2rem;
 }
 
-div.banner,
-div.page-title {
+div.banner {
   background-color: #FFF;
   color: #45A0A7;
 }
 
-.section {
-  border-top: 10px solid #fff;
-}
-
-div.page-title {
+div.section-title {
+  color: #fff;
   margin-top: 20px;
 }
 
-div.page-title > div {
+div.section-title > div {
   padding: 1rem 2rem;
 }
 
-div.page-title h2 {
+div.section-title h2,
+div.section-title h3 {
   margin-top: 0;
 }
 
-div.page-title p {
+div.section-title p {
   padding: 0;
+}
+
+div.section-title a {
+  color: #fff;
 }
 
 .full-width div {
