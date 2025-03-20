@@ -171,6 +171,7 @@ div.section-title a {
 
 .splash img {
   max-width: 100%;
+  height: auto;
 }
 
 .splash .caption {
