@@ -51,6 +51,11 @@ body {
   color: #FFF;
 }
 
+sup {
+  vertical-align: revert;
+  font-size: 0.8rem;
+}
+
 .banner h1 {
   font-size: 4rem;
   font-family: "Overlock SC", serif;

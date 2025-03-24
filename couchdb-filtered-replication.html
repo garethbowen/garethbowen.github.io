@@ -84,7 +84,7 @@
   }
   return false;
 }</pre>
-        <p>Adding users means sync requests and more docs to fetch, so it has O(N2) performance. Even with only one user filtering a lot of documents is incredibly slow, and if around 10 users synced at the same time the requests would start to queue up and time out. Suffice to say, this was abandoned very early on.</p>
+        <p>Adding users means sync requests and more docs to fetch, so it has O(N<sup>2</sup>) performance. Even with only one user filtering a lot of documents is incredibly slow, and if around 10 users synced at the same time the requests would start to queue up and time out. Suffice to say, this was abandoned very early on.</p>
         <p>One evolutionary deadend was rewriting the function in erlang. This gave roughly 3x performance improvement, which is great, but the scalability is still unacceptable.</p>
         
         <a id="filter-by-doc-id" href="#filter-by-doc-id"><h4>v2: filter by doc ID</h4></a>
@@ -93,7 +93,7 @@
                 
         <a id="view-lookups" href="#view-lookups"><h4>v3: view lookups</h4></a>
         <em>100-1000 users</em>
-        <p>At this point we had exhausted all possibilities of the natively supported CouchDB functionality and we took the leap to augment the process. We wanted to maintain protocol compatibility so at least the client implementation wouldn't need to change. With this attempt the server intercepted the replication request and looked up the list of IDs the user was permitted to view before proxying the request to CouchDB for changes that match those IDs. The IDs were looked up using CouchDB map/reduce views performs well and does the caching for you so repeated lookups are fast so we thought we were done.</p>
+        <p>At this point we had exhausted all possibilities of the natively supported CouchDB functionality and we took the leap to augment the process. We wanted to maintain protocol compatibility so at least the client implementation wouldn't need to change. With this attempt the server intercepted the replication request and looked up the list of IDs the user was permitted to view before proxying the request to CouchDB for changes that match those IDs. The IDs were looked up using CouchDB map/reduce views which performs well and does the caching for you so repeated lookups are fast. We thought we were done.</p>
         <p>But as we kept scaling we found the next bottleneck...</p>
                 
         <a id="custom-initial-replication" href="#custom-initial-replication"><h4>v4: custom initial replication</h4></a>
@@ -124,7 +124,7 @@
         <a id="throwing-hardware-at-it" href="#throwing-hardware-at-it"><h4>Throwing hardware at it</h4></a>
         <p>One of the first attempts at solving replication throughput was increasing the number of cores available to CouchDB. Initially this was the latest and greatest v2, which maxed out at one CPU per data shard which defaults to 8, so there's no improvement past about 10 cores. It's difficult to increase the number of shards with existing data, so you definitely want to think carefully about how many shards you think you'll need before getting started. The latest CouchDB v3 improves the multi-threading to make better use of additional cores. It also made it easier to increase the number of shards through resharding.</p>
         <p>The next idea was to increase the memory as instances were using all available RAM, but CouchDB kept consuming 100% of the RAM that was given. For a database this is ideal, because we needed it to cache as much as it was allowed. This made no noticeable improvement to overall scalability, because the problem was CPU and IO bound.</p>
-        <p>Clustering works extremely well in CouchDB for example when testing a three node cluster we measured a 3x performance improvement. Much like with shards it's difficult to change the number of nodes in the cluster once in production, so it pays to work out what scale you'll need before going live. The downside is that clustering significantly increases deployment complexity. Additionally to get reliable uptime CouchDB uses replicas of the data on different nodes so if one node is unavailable the server can still respond which doubles the double disk usage.</p>
+        <p>Clustering works extremely well in CouchDB for example when testing a three node cluster we measured a 3x performance improvement. Much like with shards it's difficult to change the number of nodes in the cluster once in production, so it pays to work out what scale you'll need before going live. The downside is that clustering significantly increases deployment complexity. Additionally to get reliable uptime CouchDB uses replicas of the data on different nodes so if one node is unavailable the server can still respond. This doubles the disk usage.</p>
         <p>Using more shards and clustered nodes multiplied the performance and scalability of replication, and were complementary with the algorithmic changes above.</p>
 
         <a id="replacing-couchdb" href="#replacing-couchdb"><h4>Replacing CouchDB</h4></a>
