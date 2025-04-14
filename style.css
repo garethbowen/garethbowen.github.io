@@ -166,6 +166,12 @@ div.section-title a {
   max-width: 100%;
 }
 
+.quote {
+  padding: 0 2rem;
+  font-style: italic;
+  position: relative;
+}
+
 .splash {
   text-align: center;
 }
@@ -230,5 +236,8 @@ div.section-title a {
   }
   .social img {
     margin: 0.4rem;
+  }
+  .quote {
+    padding: 0 1rem;
   }
 }
