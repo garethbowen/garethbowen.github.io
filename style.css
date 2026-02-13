@@ -29,6 +29,15 @@ body {
 ol, ul {
 	list-style: none;
 }
+.bullet {
+  margin: 0 40px;
+}
+ul.bullet {
+  list-style: inherit;
+}
+ol.bullet {
+  list-style: numeric;
+}
 blockquote, q {
 	quotes: none;
 }
@@ -180,7 +189,8 @@ div.section-title a {
   display: inline-block;
 }
 
-.splash img {
+.splash img,
+.image img {
   max-width: 100%;
   height: auto;
 }
